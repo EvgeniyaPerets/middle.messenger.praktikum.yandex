@@ -1,15 +1,12 @@
 import Handlebars from 'handlebars'
-import greeting from './templates/greeting'
-import button from './partials/button.tmpl'
-
-Handlebars.registerPartial('button', button)
+import start from './pages/start.tmlp'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector('#app')
 
-  const template = Handlebars.compile(greeting)
+  const template = Handlebars.compile(start)
 
-  const result = template({ name: 'fuck'})
+  const result = template({ text: 'all pages'})
 
   root.innerHTML = result
 })
