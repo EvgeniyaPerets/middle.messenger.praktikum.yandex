@@ -8,18 +8,10 @@ Handlebars.registerPartial('button', button)
 Handlebars.registerPartial('input', input)
 Handlebars.registerPartial('link', link)
 
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#login')
-
-  const template = Handlebars.compile(login)
-
-  const result = template({
-    title: 'Вход',
-    loginContext: { placeholder: 'Логин', type: 'login' },
-    passwordContext: { placeholder: 'Пароль', type: 'password' },
-    buttonContext: { class: 'login_button', btn: 'Вход' },
-    linkContext: { text: 'Нет аккаунта?', link: '/' }
-  })
-
-  root.innerHTML = result
+export default Handlebars.compile(login)({
+  title: 'Вход',
+  loginContext: { placeholder: 'Логин', type: 'login' },
+  passwordContext: { placeholder: 'Пароль', type: 'password' },
+  buttonContext: { class: 'login_button', btn: 'Вход' },
+  linkContext: { text: 'Нет аккаунта?', link: '/' }
 })

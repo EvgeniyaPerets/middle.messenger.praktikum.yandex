@@ -1,6 +1,6 @@
 export default `
-<div class='wrapper'>
-  <h3 class='title'>{{ title }}</h3>
+<div class='signin_wrapper'>
+  <h3 class='title_h3'>{{ title }}</h3>
   <form>
     {{> input emailContext }}
     {{> input signinContext }}
