@@ -11,3 +11,6 @@ https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type
 /settings - настройки пофиля
 /settings_password - настройки пароля
 /profile - профиль
+
+**внешнаа ссылка**
+https://starlit-bunny-cebde5.netlify.app/
