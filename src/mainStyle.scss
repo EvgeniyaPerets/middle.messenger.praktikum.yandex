@@ -17,10 +17,6 @@ body {
   margin: 0;
 }
 
-#app {
-  margin: 24px;
-}
-
 h3 {
   font-size: 20px;
   line-height: 20px;
@@ -32,6 +28,12 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.start_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .title_h3 {
