@@ -10,8 +10,15 @@ Handlebars.registerPartial('link', link)
 
 export default Handlebars.compile(login)({
   title: 'Вход',
-  loginContext: { placeholder: 'Логин', type: 'login' },
-  passwordContext: { placeholder: 'Пароль', type: 'password' },
+  loginContext: {
+    placeholder: 'Логин',
+    type: 'login',
+    name: 'login',
+  },
+  passwordContext: {
+    placeholder: 'Пароль',
+    type: 'password'
+  },
   buttonContext: { class: 'login_button', btn: 'Вход' },
   linkContext: { text: 'Нет аккаунта?', link: '/' }
 })

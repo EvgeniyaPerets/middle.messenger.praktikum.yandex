@@ -3,6 +3,7 @@ import Chats from './pages/Chats'
 import ErrorPage from './pages/ErrorPage'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import SettingsPassword from './pages/SettingsPassword'
 import Settings from './pages/SettingsProfile'
 import Signin from './pages/Signin'
 import start from './pages/start.tmlp'
@@ -24,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return Settings
       case '/profile':
         return Profile
+      case '/settings_password':
+        return SettingsPassword
       case '/chats':
         return Chats
       case '/':
