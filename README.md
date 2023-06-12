@@ -8,5 +8,6 @@ https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type
 /500 - 500 ошибка
 /400 - 400 ошибка
 /chats - чаты
-/settings - настройки
+/settings - настройки пофиля
+/settings_password - настройки пароля
 /profile - профиль
