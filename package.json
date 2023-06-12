@@ -10,7 +10,7 @@
     "start": "npm run build && node server.js"
   },
   "engines": {
-    "node": ">=6.12.0"
+    "node": ">= 12"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
