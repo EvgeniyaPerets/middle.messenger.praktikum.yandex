@@ -3,6 +3,7 @@
 https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type=design&node-id=0-1&t=IvHlaxQZzcbyEr0w-0
 
 **страницы**
+
 /login - логин
 /signin - регистрация
 /500 - 500 ошибка
@@ -13,12 +14,15 @@ https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type
 /profile - профиль
 
 **внешняя ссылка**
+
 https://starlit-bunny-cebde5.netlify.app/
 
 **описание проекта**
+
 учебны проект. мессенджер.
 используется ванильный js, шаблонизатор handlerbars, сборщик vite, express для раздачи статики. версия nodejs выше 12.
 
 **команды**
+
 *npm run dev* режим разработчика
 *npm run start* сборка и запуск
