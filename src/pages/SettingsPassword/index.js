@@ -20,6 +20,7 @@ export default Handlebars.compile(settingsProfile)({
   },
   buttonContext: {
     class: 'settings_profile_button',
-    btn: 'Сохранить'
+    btn: 'Сохранить',
+    type: 'submit'
   },
 })
