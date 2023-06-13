@@ -12,5 +12,13 @@ https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type
 /settings_password - настройки пароля
 /profile - профиль
 
-**внешнаа ссылка**
+**внешняя ссылка**
 https://starlit-bunny-cebde5.netlify.app/
+
+**описание проекта**
+учебны проект. мессенджер.
+используется ванильный js, шаблонизатор handlerbars, сборщик vite, express для раздачи статики. версия nodejs выше 12.
+
+**команды**
+*npm run dev* режим разработчика
+*npm run start* сборка и запуск
