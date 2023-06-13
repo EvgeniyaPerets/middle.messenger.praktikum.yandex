@@ -47,7 +47,8 @@ export default Handlebars.compile(signin)({
   },
   buttonContext: {
     class: 'signin_button',
-    btn: 'Зарегистрироваться'
+    btn: 'Зарегистрироваться',
+    type: 'submit'
   },
   linkContext: {
     text: 'Вход',

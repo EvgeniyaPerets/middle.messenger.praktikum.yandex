@@ -19,6 +19,13 @@ export default Handlebars.compile(login)({
     placeholder: 'Пароль',
     type: 'password'
   },
-  buttonContext: { class: 'login_button', btn: 'Вход' },
-  linkContext: { text: 'Нет аккаунта?', link: '/' }
+  buttonContext: {
+    class: 'login_button',
+    btn: 'Вход',
+    type: 'submit'
+  },
+  linkContext: {
+    text: 'Нет аккаунта?',
+    link: '/'
+  }
 })
