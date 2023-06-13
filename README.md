@@ -4,14 +4,14 @@ https://www.figma.com/file/1Bxckh3jelwCZbIdgNuAKI/Chat_external_link-(Copy)?type
 
 **страницы**
 
-/login - логин
-/signin - регистрация
-/500 - 500 ошибка
-/400 - 400 ошибка
-/chats - чаты
-/settings - настройки пофиля
-/settings_password - настройки пароля
-/profile - профиль
+* /login - логин
+* /signin - регистрация
+* /500 - 500 ошибка
+* /400 - 400 ошибка
+* /chats - чаты
+* /settings - настройки пофиля
+* /settings_password - настройки пароля
+* /profile - профиль
 
 **внешняя ссылка**
 
@@ -24,5 +24,5 @@ https://starlit-bunny-cebde5.netlify.app/
 
 **команды**
 
-*npm run dev* режим разработчика
-*npm run start* сборка и запуск
+* *npm run dev* режим разработчика
+* *npm run start* сборка и запуск
