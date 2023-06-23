@@ -35,5 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return ErrorPage.page404
     }
   }
-  root.innerHTML = getPage()
+  if (root) {
+    root.innerHTML = getPage()
+  }
 })
