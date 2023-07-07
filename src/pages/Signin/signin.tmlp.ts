@@ -14,4 +14,4 @@ export default `
 
   {{> link linkContext }}
 </div>
-`
+`;

@@ -4,4 +4,4 @@ export default `
     <span class="errorText">{{ errorText}}</span>
     {{> link linkContext }}
   </div>
-`
+`;

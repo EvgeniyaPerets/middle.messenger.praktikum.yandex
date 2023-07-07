@@ -7,4 +7,4 @@ export default `
     {{> button buttonContext}}
   </form>
 </div>
-`
+`;

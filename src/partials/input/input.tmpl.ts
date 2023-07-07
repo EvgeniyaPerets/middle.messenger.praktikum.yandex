@@ -3,4 +3,4 @@ export default `
     <input type="{{ type }}" placeholder=" " name={{ name }} value={{ value }}></input>
     <label for={{ name }}>{{ placeholder }}</label>
   </div>
-`
+`;

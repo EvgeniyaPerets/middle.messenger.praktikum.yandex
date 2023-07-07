@@ -1,10 +1,10 @@
-import Handlebars from 'handlebars'
-import profile from './profile.tmpl'
-import button from '../../partials/button/button.tmpl'
-import link from '../../partials/link/link.tmpl'
+import Handlebars from 'handlebars';
+import profile from './profile.tmpl';
+import button from '../../partials/button/button.tmpl';
+import link from '../../partials/link/link.tmpl';
 
-Handlebars.registerPartial('button', button)
-Handlebars.registerPartial('link', link)
+Handlebars.registerPartial('button', button);
+Handlebars.registerPartial('link', link);
 
 export default Handlebars.compile(profile)({
   email: 'pochta@yandex.ru',
@@ -23,11 +23,11 @@ export default Handlebars.compile(profile)({
   },
   settingsPasswordContext: {
     text: 'Изменить пароль',
-    link: '/settings_password'
+    link: '/settings_password',
   },
   outContext: {
     text: 'Выйти',
     class: 'out_link',
-    link: '/'
-  }
-})
+    link: '/',
+  },
+});
