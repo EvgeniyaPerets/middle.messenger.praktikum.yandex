@@ -17,17 +17,11 @@ class Block<P extends Record<string, any> = any> {
   public children: Record<string, Block>;
   private eventBus: () => EventBus;
   private _element: HTMLElement | null = null;
-  private _meta: { tagName: string, props: P };
 
-  constructor(propsWithChildren: P, tagName = 'div') {
+  constructor(propsWithChildren: P,  private readonly tagName = 'div') {
     const eventBus = new EventBus();
 
     const { props, children } = this._getChildrenAndProps(propsWithChildren);
-
-    this._meta = {
-      tagName,
-      props: props as P,
-    };
 
     this.children = children;
     this.props = this._makePropsProxy(props);
@@ -70,8 +64,7 @@ class Block<P extends Record<string, any> = any> {
   }
 
   _createResources() {
-    const { tagName } = this._meta;
-    this._element = this._createDocumentElement(tagName);
+    this._element = this._createDocumentElement(this.tagName);
   }
 
   private _init() {
@@ -96,11 +89,21 @@ class Block<P extends Record<string, any> = any> {
     Object.values(this.children).forEach(child => child.dispatchComponentDidMount());
   }
 
-  private _componentDidUpdate(_oldProps: P, _newProps: P) {
-    return true;
+  public componentDidUpdate(oldProps: P, newProps: P) {
+    return oldProps !== newProps;
   }
 
-  setProps = (nextProps: P) => {
+  private _componentDidUpdate(oldProps: P, newProps: P) {
+    const isUpdate = this.componentDidUpdate(oldProps, newProps);
+
+    if (!isUpdate) {
+      return;
+    }
+
+    this._render();
+  }
+
+  public setProps = (nextProps: P) => {
     if (!nextProps) {
       return;
     }
@@ -122,7 +125,7 @@ class Block<P extends Record<string, any> = any> {
     this._addEvents();
   }
 
-  protected compile(template: string, context: any) {
+  protected compile(template: string, context: any): DocumentFragment {
     const contextAndStubs = { ...context };
 
     Object.entries(this.children).forEach(([name, component]) => {
@@ -146,33 +149,41 @@ class Block<P extends Record<string, any> = any> {
 
       stub.replaceWith(component.getContent()!);
     });
+
+    return temp.content;
   }
 
   protected render(): DocumentFragment {
     return new DocumentFragment();
   }
 
-  getContent() {
-    return this.element;
+  getContent(): HTMLElement {
+    return <HTMLElement> this.element;
+  }
+
+  public updatePropValue(name: string, newValue: any): void {
+    this.props[name as keyof P] = newValue;
   }
 
   _makePropsProxy(props: P) {
-    const self = this;
-
     return new Proxy(props, {
-      get(target, prop: string) {
+      get: (target, prop: string) => {
         const value = target[prop];
         return typeof value === 'function' ? value.bind(target) : value;
       },
-      set(target, prop: string, value) {
-        const oldTarget = { ...target };
+      set: (target, prop: string, value) => {
+        const oldTarget = target[prop];
 
         target[prop as keyof P] = value;
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target[prop]);
         return true;
       },
-      deleteProperty() {
-        throw new Error('нет доступа');
+      deleteProperty: (target, prop: string): boolean => {
+        const oldProps = target[prop];
+        delete target[prop];
+
+        this.eventBus().emit(Block.EVENTS.FLOW_CDU, oldProps, target[prop]);
+        return true;
       },
     });
   }

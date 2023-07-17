@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 import Chats from './pages/Chats';
 import ErrorPage from './pages/ErrorPage';
-import Login from './pages/Login';
+import { Login } from './pages/Login';
 import Profile from './pages/Profile';
 import SettingsPassword from './pages/SettingsPassword';
 import Settings from './pages/SettingsProfile';
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getPage = () => {
     switch (window.location.pathname) {
       case '/login':
-        return Login;
+        return new Login({ title: 'Вход' });
       case '/500':
         return ErrorPage.page500;
       case '/404':
@@ -35,7 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return ErrorPage.page404;
     }
   };
+
   if (root) {
-    root.innerHTML = getPage();
+    const page = getPage();
+
+    if (typeof page === 'string') {
+      root.innerHTML = page;
+    } else {
+      const content = page.getContent();
+
+      if (content) {
+        root.innerHTML = '';
+        root.append(content);
+        page.dispatchComponentDidMount();
+      }
+    }
+
   }
 });
