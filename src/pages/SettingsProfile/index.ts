@@ -135,4 +135,3 @@ export class Settings extends Block {
   }
 
 }
-
