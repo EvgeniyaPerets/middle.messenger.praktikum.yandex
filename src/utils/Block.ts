@@ -4,6 +4,10 @@ import Handlebars from 'handlebars';
 import { nanoid } from 'nanoid';
 import EventBus from './EventBus';
 
+Handlebars.registerHelper('components', (data: Array<string>) => {
+  return data.reduce((str, id) => `${ str }<div data-id=${id}></div>`, '');
+});
+
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',

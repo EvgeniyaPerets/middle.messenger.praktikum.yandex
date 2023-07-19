@@ -1,0 +1,41 @@
+@import 'src/variables.scss';
+
+.chats {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.chats__panel {
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: 100%;
+    border-right: 1px solid $gray;
+}
+
+.chats__panel_search {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    height: 60px;
+}
+
+.chats__panel_list {
+    height: calc(100% - 120px);
+}
+
+.chats__panel_footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
+    height: 80px;
+    background-color: $light_gray;
+}
+
+.chats__message-area {
+    flex: 1 1 auto;
+    height: 100%;
+    position: relative;
+}

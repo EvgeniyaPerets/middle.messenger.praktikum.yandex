@@ -28,9 +28,6 @@ export class MyInput extends Block {
   constructor(props: MyInputProps) {
     super(props, 'div');
 
-    console.log(props);
-    
-
     this.setProps({
       events: {
         ...props.events,

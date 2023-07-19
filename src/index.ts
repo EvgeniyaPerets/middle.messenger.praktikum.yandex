@@ -1,5 +1,5 @@
 import Handlebars from 'handlebars';
-import Chats from './pages/Chats';
+import { Chats } from './pages/Chats';
 import { ErrorPage } from './pages/ErrorPage';
 import { Login } from './pages/Login';
 import { Profile } from './pages/Profile';
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
       case '/settings_password':
         return new SettingsPassword({ title: 'Изменить пароль' });
       case '/chats':
-        return Chats;
+        return new Chats();
       case '/':
         return Handlebars.compile(start)({ text: 'all pages' });
       default:
