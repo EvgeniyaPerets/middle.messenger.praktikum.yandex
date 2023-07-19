@@ -13,6 +13,7 @@ export interface MyInputProps {
   value?: string;
   validateRule?: Rule
   errorMessage?: string;
+  required?: boolean;
   events?: {
     onChange?: (e: IEvent) => void;
     focus?: (e: IEvent) => void;
@@ -26,6 +27,9 @@ export class MyInput extends Block {
 
   constructor(props: MyInputProps) {
     super(props, 'div');
+
+    console.log(props);
+    
 
     this.setProps({
       events: {

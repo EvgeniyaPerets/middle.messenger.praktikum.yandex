@@ -4,7 +4,7 @@ import temp from './link.tmpl';
 export interface MyLinkProps {
   text: string;
   link: string;
-  class: string;
+  class?: string;
 }
 
 export class MyLink extends Block {

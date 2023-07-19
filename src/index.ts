@@ -1,11 +1,11 @@
 import Handlebars from 'handlebars';
 import Chats from './pages/Chats';
-import ErrorPage from './pages/ErrorPage';
+import { ErrorPage } from './pages/ErrorPage';
 import { Login } from './pages/Login';
-import Profile from './pages/Profile';
-import SettingsPassword from './pages/SettingsPassword';
-import Settings from './pages/SettingsProfile';
-import Signin from './pages/Signin';
+import { Profile } from './pages/Profile';
+import { SettingsPassword } from './pages/SettingsPassword';
+import { Settings } from './pages/SettingsProfile';
+import { Signin } from './pages/Signin';
 import start from './pages/start.tmlp';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,23 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
       case '/login':
         return new Login({ title: 'Вход' });
       case '/500':
-        return ErrorPage.page500;
+        return new ErrorPage({
+          errorStatus: 500,
+          errorText: 'Мы уже фиксим',
+        });
       case '/404':
-        return ErrorPage.page404;
+        return new ErrorPage({
+          errorStatus: 404,
+          errorText: 'Не туда попали',
+        });
       case '/signin':
-        return Signin;
+        return new Signin({ title: 'Регистрация' });
       case '/settings':
-        return Settings;
+        return new Settings({ title: 'Изменить данные' });
       case '/profile':
-        return Profile;
+        return new Profile({
+          email: 'pochta@yandex.ru',
+          login: 'ivanivanov',
+          first_name: 'Иван',
+          second_name: 'Иванов',
+          display_name: 'Иван',
+          phone: '+7 (909) 967 30 30',
+        });
       case '/settings_password':
-        return SettingsPassword;
+        return new SettingsPassword({ title: 'Изменить пароль' });
       case '/chats':
         return Chats;
       case '/':
         return Handlebars.compile(start)({ text: 'all pages' });
       default:
-        return ErrorPage.page404;
+        return new ErrorPage({
+          errorStatus: 404,
+          errorText: 'Не туда попали',
+        });
     }
   };
 

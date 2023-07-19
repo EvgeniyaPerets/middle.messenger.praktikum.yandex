@@ -1,5 +1,5 @@
 export default `
-  {{> button buttonContext }}
+  {{{ button }}}
   <div class="profile_wrapper">
     <div class="profile_avatar">
       <div class="avatar">
@@ -37,13 +37,13 @@ export default `
 
     <ul class="profile_nav">
       <li class="profile_nav_item">
-        {{> link settingsProfileContext }}
+        {{{ settings_profile }}}
       </li>
       <li class="profile_nav_item">
-        {{> link settingsPasswordContext }}
+        {{{ settings_password }}}
       </li>
       <li class="profile_nav_item">
-        {{> link outContext }}
+        {{{ out }}}
       </li>
     </ul>
   </div>

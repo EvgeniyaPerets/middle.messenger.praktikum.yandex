@@ -1,33 +1,46 @@
-import Handlebars from 'handlebars';
+import { MyButton } from './../../partials/button/Button';
+import { MyLink } from './../../partials/link/Link';
+import Block from '../../utils/Block';
 import profile from './profile.tmpl';
-import button from '../../partials/button/button.tmpl';
-import link from '../../partials/link/link.tmpl';
 
-Handlebars.registerPartial('button', button);
-Handlebars.registerPartial('link', link);
+export interface ProfileProps {
+  email: string;
+  login: string;
+  first_name: string;
+  second_name: string;
+  display_name: string;
+  phone: string;
+}
 
-export default Handlebars.compile(profile)({
-  email: 'pochta@yandex.ru',
-  login: 'ivanivanov',
-  first_name: 'Иван',
-  second_name: 'Иванов',
-  display_name: 'Иван',
-  phone: '+7 (909) 967 30 30',
-  buttonContext: {
-    class: 'prev_page',
-    btn: 'Назад',
-  },
-  settingsProfileContext: {
-    text: 'Изменить данные',
-    link: '/settings',
-  },
-  settingsPasswordContext: {
-    text: 'Изменить пароль',
-    link: '/settings_password',
-  },
-  outContext: {
-    text: 'Выйти',
-    class: 'out_link',
-    link: '/',
-  },
-});
+export class Profile extends Block {
+  constructor(props: ProfileProps) {
+    super({ ...props });
+  }
+
+  init() {
+    this.children = {
+      button: new MyButton({
+        class: 'prev_page',
+        btn: 'Назад',
+        events: { click: () => document.location.href = '/' },
+      }),
+      settings_profile: new MyLink({
+        text: 'Изменить данные',
+        link: '/settings',
+      }),
+      settings_password: new MyLink({
+        text: 'Изменить пароль',
+        link: '/settings_password',
+      }),
+      out: new MyLink({
+        text: 'Выйти',
+        class: 'out_link',
+        link: '/',
+      }),
+    };
+  }
+
+  render() {
+    return this.compile(profile, this.props);
+  }
+}

@@ -1,22 +1,27 @@
-import Handlebars from 'handlebars';
+import { MyLink } from './../../partials/link/Link';
 import error from './error.tmpl';
-import link from '../../partials/link/link.tmpl';
+import Block from '../../utils/Block';
 
-Handlebars.registerPartial('link', link);
+export interface ErrorProps {
+  errorStatus: number;
+  errorText: string;
+}
 
-const page500 = Handlebars.compile(error)({
-  errorStatus: 500,
-  errorText: 'Мы уже фиксим',
-  linkContext: { link: '/', text: 'Назад к чатам' },
-});
+export class ErrorPage extends Block {
+  constructor(props: ErrorProps) {
+    super({ ...props } );
+  }
 
-const page404 = Handlebars.compile(error)({
-  errorStatus: 404,
-  errorText: 'Не туда попали',
-  linkContext: { link: '/', text: 'Назад к чатам' },
-});
+  init() {
+    this.children = {
+      link: new MyLink({
+        link: '/',
+        text: 'Назад к чатам',
+      }),
+    };
+  }
 
-export default {
-  page404,
-  page500,
-};
+  render() {
+    return this.compile(error, this.props);
+  }
+}

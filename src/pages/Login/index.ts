@@ -1,6 +1,6 @@
-import { MyLinkProps, MyLink } from './../../partials/link/Link';
-import { MyInput, MyInputProps } from './../../partials/input/Input';
-import { MyButton, MyButtonProps } from './../../partials/button/Button';
+import { MyLink } from './../../partials/link/Link';
+import { MyInput } from './../../partials/input/Input';
+import { MyButton } from './../../partials/button/Button';
 import Block from '../../utils/Block';
 import temp from './login.tmlp';
 import validator from '../../utils/Validator';
@@ -31,7 +31,7 @@ export class Login extends Block {
         events: {
           onChange: (event: any) => this.onChangeValue('login', event.target.value),
         },
-      } as MyInputProps),
+      }),
       passwordContext: new MyInput({
         placeholder: 'Пароль',
         type: 'password',
@@ -41,16 +41,16 @@ export class Login extends Block {
         events: {
           onChange: (event) => this.onChangeValue('password', event.target.value),
         },
-      } as MyInputProps),
+      }),
       buttonContext: new MyButton({
         class: 'login_button',
         btn: 'Вход',
         type: 'submit',
-      } as MyButtonProps),
+      }),
       linkContext: new MyLink({
         text: 'Нет аккаунта?',
         link: '/',
-      } as MyLinkProps),
+      }),
     };
   }
 
