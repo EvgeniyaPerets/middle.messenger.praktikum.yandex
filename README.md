@@ -22,6 +22,8 @@ https://starlit-bunny-cebde5.netlify.app/
 учебны проект. мессенджер.
 используется ванильный js, шаблонизатор handlerbars, сборщик vite, express для раздачи статики. версия nodejs выше 12.
 
+добавила общий компонент Block, проверку кода eslint и stylelint
+
 **команды**
 
 * *npm run dev* режим разработчика
