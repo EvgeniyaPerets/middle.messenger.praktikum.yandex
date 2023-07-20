@@ -8,6 +8,8 @@ enum METHODS {
 
 type TRequestData = Record<string, string | number>;
 
+type HTTPMethod = (url: string, options?: TRequestOptions) => Promise<unknown>;
+
 type TRequestOptions = {
   method?: METHODS
   headers?: Record<string, string>
@@ -23,23 +25,23 @@ function queryStringify(data: TRequestData) {
 }
 
 class HTTPTransport {
-  public get = (url: string, options = {}) => {
+  public get: HTTPMethod = (url, options = {}) => {
     return this.request(url, { ...options, method: METHODS.GET });
   };
 
-  public post = (url: string, options = {}) => {
+  public post: HTTPMethod = (url, options = {}) => {
     return this.request(url, { ...options, method: METHODS.POST });
   };
 
-  public put = (url: string, options = {}) => {
+  public put: HTTPMethod = (url, options = {}) => {
     return this.request(url, { ...options, method: METHODS.PUT });
   };
 
-  public patch = (url: string, options = {}) => {
+  public patch: HTTPMethod = (url, options = {}) => {
     return this.request(url, { ...options, method: METHODS.PATCH });
   };
 
-  public delete = (url: string, options = {}) => {
+  public delete: HTTPMethod = (url, options = {}) => {
     return this.request(url, { ...options, method: METHODS.DELETE });
   };
 
