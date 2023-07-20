@@ -9,8 +9,6 @@ export interface MyButtonProps {
 }
 
 export class MyButton extends Block {
-  public props: MyButtonProps;
-
   constructor(props: MyButtonProps) {
     super(props, 'div');
   }
