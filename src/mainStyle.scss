@@ -1,15 +1,17 @@
+@import 'src/variables.scss';
+
 * {
   box-sizing: border-box;
-  font-family: 'Inter';
+  font-family: Inter;
 }
 
 @font-face {
-  font-family: "Inter";
+  font-family: Inter;
   src: url("../static/fonts/Inter-Regular.ttf")
 }
 
 @font-face {
-  font-family: "InterBold";
+  font-family: InterBold;
   src: url("../static/fonts/Inter-Bold.ttf")
 }
 
@@ -39,4 +41,12 @@ h3 {
 .title_h3 {
   font-style: normal;
   font-weight: 500;
+}
+
+.subtitle {
+  font-size: 10px;
+}
+
+.error--text {
+    color: $red;
 }
